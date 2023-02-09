@@ -19,11 +19,11 @@ There are examples so far：
 
 
 
-1.kmbox b简单
+1.kmbox简单例子
 
 
 
-2.自定义自视图范围
+2.自定义自瞄范围
 
 
 
