@@ -1,0 +1,17 @@
+#Python 程序经常需要获取管理员权限，通过将以下代码加入进您的程序中，即可在程序启动时自动获取UAC权限
+def is_admin():
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin()
+    except:
+        return False
+if is_admin():
+    print("程序已获取管理员身份")
+else:
+    print("程序非管理员身份启动，正在获取管理员权限")
+    c=ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, __file__, None, 1)
+    if c!=0:
+        print("获取管理员权限成功")
+        sys.exit(0)
+    else:
+        print("获取管理员权限失败")
+        os.system("pause")
